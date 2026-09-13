@@ -8,7 +8,7 @@ class EventsScreen extends StatelessWidget {
   const EventsScreen({super.key});
   @override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:const Text('Events / Faults')),
     body:FutureBuilder<List<EventRecord>>(
-      future:context.read<AppState>().api.events(),
+      future:c.read<AppState>().api.events(),
       builder:(c,s){
         if(s.connectionState==ConnectionState.waiting)return const Center(child:CircularProgressIndicator());
         if(s.hasError)return Center(child:Text('Events unavailable: ${s.error}'));
