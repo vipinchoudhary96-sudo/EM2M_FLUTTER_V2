@@ -1,3 +1,5 @@
+name: em2m_controller_v2
+description: EM2M ESP32-S3 production-ready Flutter V2
 publish_to: "none"
 version: 2.0.0+1
 
