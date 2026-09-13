@@ -17,7 +17,7 @@ class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
   @override Widget build(BuildContext c) {
-    final s = context.watch<AppState>();
+    final s = c.watch<AppState>();
     final d = s.meter;
     return Scaffold(
       appBar: AppBar(
