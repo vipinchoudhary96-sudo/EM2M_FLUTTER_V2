@@ -17,11 +17,20 @@ android {
         versionName = flutter.versionName
     }
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
     buildTypes {
         release {
             signingConfig = signingConfigs.debug
         }
     }
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 flutter {
