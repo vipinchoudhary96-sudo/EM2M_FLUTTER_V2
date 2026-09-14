@@ -29,7 +29,7 @@ jobs:
           echo "distributionUrl=https\\://services.gradle.org/distributions/gradle-8.14.3-bin.zip" > gradle/wrapper/gradle-wrapper.properties
           echo "Gradle wrapper properties:"
           cat gradle/wrapper/gradle-wrapper.properties
-          ./gradlew --versionn
+          ./gradlew --version
 
       - name: Get dependencies
         run: flutter pub get
