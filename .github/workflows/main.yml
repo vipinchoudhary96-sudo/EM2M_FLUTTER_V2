@@ -21,30 +21,12 @@ jobs:
         with:
           channel: stable
 
-      - name: Debug Gradle wrapper
+            - name: Fix Gradle wrapper
         working-directory: android
         run: |
-          echo "=== CURRENT DIRECTORY ==="
-          pwd
-          echo "=== ANDROID FILES ==="
-          ls -la
-          echo "=== GRADLE FILES ==="
-          ls -la gradle || true
-          echo "=== WRAPPER FILES ==="
-          ls -la gradle/wrapper || true
-          echo "=== CHECK PROPERTIES ==="
-          if [ -f "gradle/wrapper/gradle-wrapper.properties" ]; then
-            echo "gradle-wrapper.properties EXISTS"
-          else
-            echo "gradle-wrapper.properties DOES NOT EXIST"
-          fi
-          echo "=== CHECK GRADLEW ==="
-          if [ -f "gradlew" ]; then
-            echo "gradlew EXISTS"
-            chmod +x gradlew
-          else
-            echo "gradlew DOES NOT EXIST"
-          fi
+          chmod +x gradlew
+          sed -i 's#distributionUrl=.*#distributionUrl=https\\://services.gradle.org/distributions/gradle-8.14.3-bin.zip#' gradle/wrapper/gradle-wrapper.properties
+          ./gradlew --version
 
       - name: Get dependencies
         run: flutter pub get
