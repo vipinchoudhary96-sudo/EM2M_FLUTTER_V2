@@ -22,11 +22,14 @@ jobs:
           channel: stable
 
       - name: Fix Gradle wrapper
-        working-directory: android
         run: |
+          cd android
           chmod +x gradlew
-          sed -i 's#distributionUrl=.*#distributionUrl=https\\://services.gradle.org/distributions/gradle-8.14.3-bin.zip#' gradle/wrapper/gradle-wrapper.properties
-          ./gradlew --version
+          mkdir -p gradle/wrapper
+          echo "distributionUrl=https\\://services.gradle.org/distributions/gradle-8.14.3-bin.zip" > gradle/wrapper/gradle-wrapper.properties
+          echo "Gradle wrapper properties:"
+          cat gradle/wrapper/gradle-wrapper.properties
+          ./gradlew --versionn
 
       - name: Get dependencies
         run: flutter pub get
