@@ -1,0 +1,22 @@
+name: em2m_controller_v2
+description: EM2M ESP32-S3 production-ready Flutter V2
+publish_to: "none"
+version: 2.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.2
+  shared_preferences: ^2.3.2
+  intl: ^0.19.0
+  provider: ^6.1.2
+  csv: ^6.0.0
+  path_provider: ^2.1.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/startup_logo.png
