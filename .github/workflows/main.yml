@@ -2,9 +2,11 @@ name: Flutter CI
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   pull_request:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
   build:
@@ -19,28 +21,23 @@ jobs:
         with:
           channel: stable
 
-            - name: Debug Gradle wrapper
+      - name: Debug Gradle wrapper
         working-directory: android
         run: |
           echo "=== CURRENT DIRECTORY ==="
           pwd
-
           echo "=== ANDROID FILES ==="
           ls -la
-
           echo "=== GRADLE FILES ==="
           ls -la gradle || true
-
           echo "=== WRAPPER FILES ==="
           ls -la gradle/wrapper || true
-
           echo "=== CHECK PROPERTIES ==="
           if [ -f "gradle/wrapper/gradle-wrapper.properties" ]; then
             echo "gradle-wrapper.properties EXISTS"
           else
             echo "gradle-wrapper.properties DOES NOT EXIST"
           fi
-
           echo "=== CHECK GRADLEW ==="
           if [ -f "gradlew" ]; then
             echo "gradlew EXISTS"
