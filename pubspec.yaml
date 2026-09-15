@@ -16,6 +16,9 @@ dependencies:
   csv: ^6.0.0
   path_provider: ^2.1.4
 
+dependency_overrides:
+  objective_c: 9.5.0
+
 flutter:
   uses-material-design: true
   assets:
